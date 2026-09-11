@@ -7,6 +7,10 @@
  * 3. Реализовать вывод списка всех книг в библиотеке.
  * 4. Реализовать поиск книги по её названию.
  * 5. Приложение должно быть реализовано с использованием ровно 4-х классов.
+ *
+ * УЛУЧШЕНИЯ (feature/2):
+ * 6. Добавлен метод подсчета количества книг в библиотеке.
+ * 7. Добавлен метод удаления книги по названию.
  */
 
 public class Main {
@@ -18,19 +22,26 @@ public class Main {
 
         Book book1 = new Book("Война и мир", author1, 1869);
         Book book2 = new Book("Преступление и наказание", author2, 1866);
+        Book book3 = new Book("Анна Каренина", author1, 1877);
 
         myLibrary.addBook(book1);
         myLibrary.addBook(book2);
+        myLibrary.addBook(book3);
 
         System.out.println("Все книги в библиотеке:");
         myLibrary.displayAllBooks();
 
-        System.out.println("\nПоиск книги 'Война и мир':");
-        Book found = myLibrary.findBookByTitle("Война и мир");
-        if (found != null) {
-            System.out.println("Найдена: " + found.toString());
-        } else {
-            System.out.println("Книга не найдена.");
+        // Используем новую функцию: подсчет книг
+        System.out.println("\nВсего книг в библиотеке: " + myLibrary.getBooksCount());
+
+        // Используем новую функцию: удаление книги
+        System.out.println("\nУдаляем книгу 'Анна Каренина'...");
+        boolean removed = myLibrary.removeBookByTitle("Анна Каренина");
+        if (removed) {
+            System.out.println("Книга успешно удалена!");
         }
+
+        System.out.println("\nКниг после удаления: " + myLibrary.getBooksCount());
+        myLibrary.displayAllBooks();
     }
 }

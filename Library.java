@@ -30,4 +30,22 @@ public class Library {
         }
         return null;
     }
+
+    // === НОВЫЕ МЕТОДЫ (улучшение из feature/2) ===
+
+    // Метод для подсчета количества книг в библиотеке
+    public int getBooksCount() {
+        return books.size();
+    }
+
+    // Метод для удаления книги по названию
+    public boolean removeBookByTitle(String title) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).getTitle().equalsIgnoreCase(title)) {
+                books.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
 }
