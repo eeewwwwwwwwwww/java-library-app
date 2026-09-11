@@ -1,3 +1,6 @@
+package library;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,5 +50,9 @@ public class Library {
             }
         }
         return false;
+    }
+    // Возвращает копию списка всех книг
+    public List<Book> getAllBooks() {
+        return new ArrayList<>(books);
     }
 }

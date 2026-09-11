@@ -1,0 +1,6 @@
+library\BookFilter.class
+library\Author.class
+library\Main.class
+library\Book.class
+library\Library.class
+library\LibraryService.class
